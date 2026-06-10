@@ -6,7 +6,7 @@
  *   1) Arranca MySQL en MAMP.
  *   2) Importa db/schema.sql (crea la BBDD "curso" y la tabla "usuarios").
  *   3) Ajusta usuario/contraseña/puerto abajo si tu MAMP no usa root/root.
- *   4) Sírvelo: http://localhost/php-course/05-php-web/ejemplos/03-pdo.php
+ *   4) Sírvelo: ábrelo en el navegador vía MAMP (ruta 05-php-web/ejemplos/03-pdo.php)
  *
  * NOTA: requiere la extensión pdo_mysql activa. En MAMP suele estarlo bajo Apache.
  *       (Por CLI puede estar desactivada en el php.ini de la línea de comandos.)

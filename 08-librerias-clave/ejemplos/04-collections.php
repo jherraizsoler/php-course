@@ -1,6 +1,6 @@
 <?php
 /**
- * Collections de Laravel/Illuminate, usadas en Perfex.
+ * Collections de Laravel/Illuminate, usadas en un CRM profesional.
  * (composer require illuminate/collections)
  * Ejecuta:  php ejemplos/04-collections.php
  */

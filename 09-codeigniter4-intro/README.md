@@ -13,7 +13,7 @@ namespaces y PSR-4 del Módulo 04.
 CI3 es de la era PHP 5. CI4 (requiere PHP 8.1+) reescribió todo para usar lo moderno: **namespaces,
 PSR-4, inyección de dependencias, Composer de serie, ORM (Entities), CLI (`spark`)**.
 
-| Aspecto | CodeIgniter 3 (enfoca-nexo) | CodeIgniter 4 |
+| Aspecto | CodeIgniter 3 (un proyecto profesional) | CodeIgniter 4 |
 |---|---|---|
 | PHP mínimo | 5.6+ | **8.1+** |
 | Namespaces | Casi no | **Sí, en todo** (`App\Controllers\…`) |
@@ -135,9 +135,9 @@ php spark serve     # abre http://localhost:8080  (¡sin MAMP!)
 
 ---
 
-## 6. ¿Debería migrar enfoca-nexo a CI4?
+## 6. ¿Debería migrar un proyecto profesional a CI4?
 
-**No es trivial.** Perfex está construido sobre CI3 + HMVC + su propio sistema de módulos y hooks.
+**No es trivial.** Un CRM profesional está construido sobre CI3 + HMVC + su propio sistema de módulos y hooks.
 Migrar a CI4 sería prácticamente reescribir la aplicación. Por eso:
 
 - Para **tu trabajo diario**: domina **CI3** (Módulo 07). Es lo que toca.
@@ -150,7 +150,9 @@ Migrar a CI4 sería prácticamente reescribir la aplicación. Por eso:
 
 - CI4 = CI3 modernizado: namespaces, PSR-4, ORM, `spark`, PHP 8.1+.
 - Conceptualmente es el mismo MVC; cambia la sintaxis y la organización.
-- enfoca-nexo seguirá en CI3 (Perfex). CI4 es para tus proyectos nuevos.
+- Un proyecto CI3 heredado seguirá en CI3. CI4 es para tus proyectos nuevos.
 - Todo lo que aprendiste (POO, Composer, PSR-4, SOLID) se aplica **directamente** en CI4.
 
-➡️ Practica todo junto en los **[proyectos](../proyectos/)**.
+---
+
+⬅️ Anterior: [**08 · Librerías clave**](../08-librerias-clave/README.md) · 🏠 [**Índice**](../README.md) · ➡️ Siguiente: [**🏗️ Proyectos prácticos**](../proyectos/README.md)

@@ -1,6 +1,6 @@
 {
     "name": "php-course/librerias-clave",
-    "description": "Ejemplos de librerías clave usadas en proyectos reales tipo Perfex/enfoca-nexo",
+    "description": "Ejemplos de librerías clave usadas en proyectos reales (CRMs y paneles en CodeIgniter)",
     "require": {
         "php": ">=8.1",
         "nesbot/carbon": "^3.8",

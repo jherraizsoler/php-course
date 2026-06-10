@@ -1,7 +1,7 @@
 <?php
 /**
  * Herencia, clases abstractas e interfaces.
- * Simula cómo Perfex abstrae sus canales de notificación / pasarelas.
+ * Simula cómo un CRM profesional abstrae sus canales de notificación / pasarelas.
  * Ejecuta:  php 03-poo/ejemplos/02-herencia-interfaces.php
  */
 

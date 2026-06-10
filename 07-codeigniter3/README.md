@@ -1,7 +1,8 @@
 # 07 · CodeIgniter 3 🟠
 
-El framework de tu proyecto real. **enfoca-nexo usa CodeIgniter 3.1.11** (un Perfex CRM) con HMVC y
-hooks. Este módulo te lleva de no saber nada de CI a entender la estructura de Perfex.
+El framework más usado en muchos CRMs y paneles de gestión en PHP. Hay proyectos reales que usan
+**CodeIgniter 3.1.11** con HMVC y hooks. Este módulo te lleva de no saber nada de CI a entender la
+estructura de un proyecto profesional de ese tipo.
 
 > 📖 Documentación oficial CI3: https://codeigniter.com/userguide3/
 
@@ -52,8 +53,8 @@ proyecto/
 └── index.php             ← punto de entrada único (front controller)
 ```
 
-> 🔍 Esto es **exactamente** lo que viste en `enfoca-nexo`: carpetas `application/` y `system/`.
-> Perfex añade encima sus `modules/`, `libraries/App_*.php` y `hooks/`.
+> 🔍 Esto es **exactamente** lo que verás en un proyecto CI3 real: carpetas `application/` y `system/`.
+> Un CRM profesional añade encima sus `modules/`, `libraries/App_*.php` y `hooks/`.
 
 ---
 
@@ -194,21 +195,21 @@ $this->session->set_flashdata('ok', 'Guardado'); // mensaje de un solo uso
 
 ---
 
-## 7. HMVC y hooks (cómo está hecho Perfex)
+## 7. HMVC y hooks (cómo está hecho un CRM profesional)
 
-Perfex no es CI3 "pelado". Añade dos cosas que verás en enfoca-nexo:
+Un CRM profesional rara vez es CI3 "pelado". Suele añadir dos cosas que verás en proyectos reales:
 
 ### HMVC (Modular Extensions)
 La carpeta `application/third_party/MX` permite organizar el código en **módulos** independientes
-(cada uno con sus controllers/models/views). En enfoca-nexo lo ves en `modules/`
-(`document_management`, `lists`, `policies`…). Un módulo se llama así:
+(cada uno con sus controllers/models/views). En un proyecto profesional lo ves en `modules/`
+(documentos, listas, políticas…). Un módulo se llama así:
 
 ```php
 $datos = Modules::run('document_management/algun_metodo', $param);
 ```
 
 ### Hooks (estilo WordPress)
-Perfex usa `bainternet/php-hooks` + `application/third_party/action_hooks.php` para "engancharse" a
+Un CRM profesional usa `bainternet/php-hooks` + `application/third_party/action_hooks.php` para "engancharse" a
 eventos sin tocar el core. Es el sistema de **acciones y filtros**:
 
 ```php
@@ -219,8 +220,8 @@ hooks()->add_action('after_invoice_added', 'mi_funcion');
 $valor = hooks()->apply_filters('nombre_filtro', $valor);
 ```
 
-> 🧩 Así los módulos de Perfex añaden funcionalidad sin modificar el núcleo: se "cuelgan" de hooks.
-> Es la pieza clave para entender cómo se extiende enfoca-nexo.
+> 🧩 Así los módulos de un CRM profesional añaden funcionalidad sin modificar el núcleo: se "cuelgan" de hooks.
+> Es la pieza clave para entender cómo se extiende un proyecto profesional.
 
 ---
 
@@ -248,6 +249,8 @@ montado está en [`../proyectos/crud-codeigniter3/`](../proyectos/crud-codeignit
 - `application/` = tu código; `system/` = el core (no tocar).
 - **Query Builder** (`$this->db->...`) = SQL seguro y legible.
 - `$this->load->...` carga modelos, vistas, librerías y helpers.
-- **Perfex/enfoca-nexo** = CI3 + **HMVC** (módulos) + **hooks** (acciones/filtros).
+- **un CRM profesional** = CI3 + **HMVC** (módulos) + **hooks** (acciones/filtros).
 
-➡️ Siguiente: **[08 · Librerías clave](../08-librerias-clave/)**
+---
+
+⬅️ Anterior: [**06 · Buenas prácticas**](../06-buenas-practicas/README.md) · 🏠 [**Índice**](../README.md) · ➡️ Siguiente: [**08 · Librerías clave**](../08-librerias-clave/README.md)

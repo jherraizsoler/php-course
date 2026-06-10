@@ -1,7 +1,7 @@
 # 03 · Programación Orientada a Objetos (POO) 🟡
 
 **Este módulo es la frontera.** CodeIgniter, Composer y todas las librerías profesionales se basan
-en POO. Sin esto no entiendes un controlador de Perfex. Tómate tu tiempo aquí.
+en POO. Sin esto no entiendes un controlador de un CRM profesional. Tómate tu tiempo aquí.
 
 ```bash
 php 03-poo/ejemplos/01-clases.php
@@ -93,7 +93,7 @@ echo (new Moto("Honda"))->describir(); // Vehículo de marca Honda (moto)
 ```
 
 > 🧠 En CodeIgniter 3, **todos tus controladores** extienden `CI_Controller` y **tus modelos**
-> extienden `CI_Model`. En Perfex extienden versiones propias (`App_Controller`, `App_Model`).
+> extienden `CI_Model`. En un CRM profesional extienden versiones propias (`App_Controller`, `App_Model`).
 > Entender `extends` y `parent::` es entender CodeIgniter.
 
 ---
@@ -154,7 +154,7 @@ Contador::incrementar();
 echo Contador::$total; // 2
 ```
 
-> En CodeIgniter verás mucho `self::` y helpers globales. En Laravel/Perfex verás *facades* estáticas.
+> En CodeIgniter verás mucho `self::` y helpers globales. En Laravel verás *facades* estáticas.
 
 ---
 
@@ -216,7 +216,7 @@ $u = new Usuario();
 2. **Jerarquía de empleados** — clase abstracta `Empleado` con método abstracto `calcularSueldo()`;
    subclases `Asalariado` (sueldo fijo) y `PorHoras` (horas × tarifa).
 3. **Interfaz de pago** — interfaz `PasarelaPago` con `cobrar(float $importe): bool`;
-   implementaciones `Stripe` y `PayPal` (simuladas). Esto es exactamente cómo Perfex abstrae sus
+   implementaciones `Stripe` y `PayPal` (simuladas). Esto es exactamente cómo un CRM profesional abstrae sus
    pasarelas con Omnipay.
 
 Soluciones en [`ejercicios/soluciones/`](ejercicios/soluciones/).
@@ -230,4 +230,6 @@ Soluciones en [`ejercicios/soluciones/`](ejercicios/soluciones/).
 - `interface` = contrato; `abstract` = base parcial.
 - `trait` = reutilización horizontal; `namespace` = organización (clave en CI4 y Composer).
 
-➡️ Siguiente: **[04 · PHP avanzado y Composer](../04-php-avanzado/)**
+---
+
+⬅️ Anterior: [**02 · Funciones, arrays y strings**](../02-funciones-arrays-strings/README.md) · 🏠 [**Índice**](../README.md) · ➡️ Siguiente: [**04 · PHP avanzado**](../04-php-avanzado/README.md)

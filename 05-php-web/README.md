@@ -5,7 +5,7 @@ hacerlo **de forma segura**. Esto es lo que un framework como CodeIgniter automa
 primero hay que entenderlo a pelo.
 
 > 🖥️ **Este módulo necesita MAMP** (Apache + MySQL). Sirve el curso desde `htdocs` (ver
-> [Módulo 00](../00-entorno/)) y abre `http://localhost/php-course/05-php-web/ejemplos/...`
+> [Módulo 00](../00-entorno/)) y abre en el navegador la ruta `05-php-web/ejemplos/...` (la URL base depende de tu puerto y carpeta de MAMP)
 
 ---
 
@@ -154,4 +154,6 @@ if (password_verify($passwordIntroducido, $hashGuardado)) {
 - **PDO + consultas preparadas** anti-inyección SQL. Nunca concatenes SQL.
 - Contraseñas con `password_hash` / `password_verify`.
 
-➡️ Siguiente: **[06 · Buenas prácticas](../06-buenas-practicas/)**
+---
+
+⬅️ Anterior: [**04 · PHP avanzado**](../04-php-avanzado/README.md) · 🏠 [**Índice**](../README.md) · ➡️ Siguiente: [**06 · Buenas prácticas**](../06-buenas-practicas/README.md)

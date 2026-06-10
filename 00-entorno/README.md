@@ -19,7 +19,7 @@ Navegador  ──HTTP──►  Apache  ──►  PHP  ──►  MySQL
 - **M**AMP = **M**y **A**pache, **M**ySQL, **P**HP.
 - El directorio raíz web es `C:\MAMP\htdocs\`. Todo lo que pongas ahí es accesible desde
   `http://localhost/`.
-- Tu proyecto real `enfoca-nexo` vive justo ahí: `C:\MAMP\htdocs\enfoca-nexo`.
+- El curso puedes servirlo desde `C:\MAMP\htdocs\php-course`.
 
 ### Poner el curso en MAMP
 
@@ -33,7 +33,7 @@ Copy-Item -Recurse "c:\reposPersonales\php-course" "C:\MAMP\htdocs\php-course"
 New-Item -ItemType SymbolicLink -Path "C:\MAMP\htdocs\php-course" -Target "c:\reposPersonales\php-course"
 ```
 
-Luego arranca MAMP y abre `http://localhost/php-course/`.
+Luego arranca MAMP y abre la raíz del proyecto en el navegador. La URL depende de tu puerto de Apache y de dónde tengas el repo dentro de `htdocs` (p. ej. `http://localhost:8888/repoPersonales/php-course/`).
 
 > ⚠️ Para los módulos 01–04 (fundamentos) **no necesitas MAMP**: se ejecutan por línea de
 > comandos con `php archivo.php`. Es más rápido para practicar.
@@ -71,7 +71,7 @@ function php83 { & "C:\MAMP\bin\php\php8.3.1\php.exe" @args }
 ## 3. Composer (gestor de dependencias)
 
 **Composer** es a PHP lo que `npm` a Node: descarga librerías y genera el *autoload*. Tu proyecto
-real lo usa intensamente (mira `application/composer.json` de enfoca-nexo: TCPDF, PHPMailer,
+real lo usa intensamente (mira `application/composer.json` de un proyecto profesional: TCPDF, PHPMailer,
 Carbon…). Lo veremos a fondo en el [Módulo 04](../04-php-avanzado/).
 
 ```powershell
@@ -90,7 +90,7 @@ composer dump-autoload # regenera el autoload
 
 ## 4. Git (control de versiones)
 
-Este repo ya es un repositorio Git. Comandos que usarás a diario (igual que en enfoca-nexo):
+Este repo ya es un repositorio Git. Comandos que usarás a diario (igual que en un proyecto profesional):
 
 ```bash
 git status                 # ver cambios
@@ -135,4 +135,6 @@ Debe decirte tu versión de PHP, si Composer está disponible y qué extensiones
 | Composer | Librerías + autoload | `composer require` |
 | Git | Versiones de código | `git commit` |
 
-➡️ Siguiente: **[01 · Fundamentos de PHP](../01-php-fundamentos/)**
+---
+
+🏠 [**Índice del curso**](../README.md) · ➡️ Siguiente: [**01 · Fundamentos de PHP**](../01-php-fundamentos/README.md)

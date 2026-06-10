@@ -1,7 +1,7 @@
 # 08 · Librerías clave 🟠
 
-Estas son las librerías que **realmente** verás y usarás en un proyecto como enfoca-nexo (las saqué
-de su `application/composer.json`). Aprende a usarlas y entenderás la mitad del código de Perfex.
+Estas son las librerías que **realmente** verás y usarás en un proyecto profesional (salen del
+`application/composer.json` de un CRM real). Aprende a usarlas y entenderás la mitad del código.
 
 ```bash
 cd 08-librerias-clave
@@ -17,7 +17,7 @@ php ejemplos/01-carbon.php
 
 ## 1. Carbon — fechas y horas (`nesbot/carbon`)
 
-La mejor librería para manejar fechas. Perfex la usa para vencimientos de facturas, recordatorios…
+La mejor librería para manejar fechas. Un CRM profesional la usa para vencimientos de facturas, recordatorios…
 
 ```php
 use Carbon\Carbon;
@@ -37,7 +37,7 @@ Carbon::now()->locale('es')->isoFormat('LLLL'); // fecha en español
 
 ## 2. Faker — datos falsos (`fakerphp/faker`)
 
-Genera datos realistas para poblar la BBDD en desarrollo y tests. Perfex lo usa como dependencia de
+Genera datos realistas para poblar la BBDD en desarrollo y tests. Un CRM profesional lo usa como dependencia de
 desarrollo.
 
 ```php
@@ -57,7 +57,7 @@ $faker->dateTimeThisYear();
 
 ## 3. Guzzle — cliente HTTP (`guzzlehttp/guzzle`)
 
-Para consumir APIs externas (pasarelas de pago, servicios). Perfex lo usa por debajo de Stripe,
+Para consumir APIs externas (pasarelas de pago, servicios). Un CRM profesional lo usa por debajo de Stripe,
 PayPal, Twilio, etc.
 
 ```php
@@ -81,7 +81,7 @@ $res = $client->post('https://httpbin.org/post', [
 
 ## 4. Collections — colecciones fluidas (`illuminate/collections`)
 
-Es el componente de colecciones de Laravel, **usado por Perfex**. Convierte arrays en objetos con
+Es el componente de colecciones de Laravel, **usado por un CRM profesional**. Convierte arrays en objetos con
 una API encadenable preciosa (mejor que `array_map`/`filter` sueltos).
 
 ```php
@@ -103,7 +103,7 @@ collect($usuarios)
 
 ## 5. PHPMailer — envío de correo (`phpmailer/phpmailer`)
 
-El estándar para enviar emails por SMTP. Perfex lo usa para todas sus notificaciones.
+El estándar para enviar emails por SMTP. Un CRM profesional lo usa para todas sus notificaciones.
 
 ```php
 use PHPMailer\PHPMailer\PHPMailer;
@@ -132,7 +132,7 @@ $mail->send();
 
 ## 6. TCPDF — generar PDFs (`tecnickcom/tcpdf`)
 
-Para facturas, informes… Perfex genera todos sus PDFs con TCPDF.
+Para facturas, informes… Un CRM profesional genera todos sus PDFs con TCPDF.
 
 ```php
 $pdf = new TCPDF();
@@ -146,7 +146,7 @@ $pdf->Output('factura.pdf', 'I');   // I = mostrar en navegador, D = descargar, 
 
 ---
 
-## 🗂️ Otras librerías de enfoca-nexo (para que las reconozcas)
+## 🗂️ Otras librerías de un proyecto profesional (para que las reconozcas)
 
 | Librería | Para qué |
 |---|---|
@@ -166,8 +166,10 @@ $pdf->Output('factura.pdf', 'I');   // I = mostrar en navegador, D = descargar, 
 ## 📚 Resumen
 
 - **Carbon** = fechas. **Faker** = datos de prueba. **Guzzle** = llamar APIs.
-- **Collections** = manipular datos con una API fluida (muy usada en Perfex).
+- **Collections** = manipular datos con una API fluida (muy usada en un CRM profesional).
 - **PHPMailer** = correo. **TCPDF** = PDFs.
 - Todas se instalan con `composer require` y se cargan solas por el autoload (Módulo 04).
 
-➡️ Siguiente: **[09 · Intro a CodeIgniter 4](../09-codeigniter4-intro/)**
+---
+
+⬅️ Anterior: [**07 · CodeIgniter 3**](../07-codeigniter3/README.md) · 🏠 [**Índice**](../README.md) · ➡️ Siguiente: [**09 · Intro a CodeIgniter 4**](../09-codeigniter4-intro/README.md)

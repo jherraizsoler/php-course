@@ -18,9 +18,18 @@
         .acciones { margin-left: auto; display: flex; gap: 10px; font-size: 14px; }
         .error { background: #fee2e2; color: #b91c1c; padding: 10px; border-radius: 6px; }
         input[type=text] { padding: 8px; width: 100%; margin: 8px 0; }
+        .course-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+        .course-nav a { display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+            font-size: 14px; font-weight: 600; color: #4f46e5; padding: 7px 13px;
+            border: 1px solid #c7d2fe; border-radius: 8px; background: #eef2ff; transition: all .2s; }
+        .course-nav a:hover { background: #4f46e5; color: #fff; border-color: #4f46e5; }
     </style>
 </head>
 <body>
+    <nav class="course-nav">
+        <a href="../../index.php">🏠 Inicio del curso</a>
+        <a href="../../modulo.php?m=proyectos">← Proyectos</a>
+    </nav>
     <?= $contenido ?>
 </body>
 </html>

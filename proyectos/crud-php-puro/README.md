@@ -22,7 +22,7 @@ anti-XSS y separación de responsabilidades.
 3. Si tu MySQL de MAMP no usa `root`/`root` o el puerto `3306`, edita [`config.php`](config.php).
 4. Coloca el curso en `htdocs` (ver Módulo 00) y abre:
    ```
-   http://localhost/php-course/proyectos/crud-php-puro/
+   .../proyectos/crud-php-puro/   (URL base segun tu MAMP; p. ej. http://localhost:8888/repoPersonales/php-course/proyectos/crud-php-puro/)
    ```
 
 ## Estructura

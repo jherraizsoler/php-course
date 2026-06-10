@@ -4,7 +4,7 @@
  * Ejecuta:  php 00-entorno/ejemplos/diagnostico.php
  *
  * Comprueba que tienes todo lo necesario para seguir el curso y trabajar
- * en un proyecto real tipo CodeIgniter 3 / Perfex.
+ * en un proyecto real tipo CodeIgniter 3.
  */
 
 declare(strict_types=1);
@@ -16,7 +16,7 @@ echo "==================================================\n\n";
 // 1. Versión de PHP
 echo "PHP versión: " . PHP_VERSION . "\n";
 if (version_compare(PHP_VERSION, '8.0.0', '>=')) {
-    echo "  ✅ Versión correcta (>= 8.0, como enfoca-nexo).\n";
+    echo "  ✅ Versión correcta (>= 8.0, como un proyecto profesional real).\n";
 } else {
     echo "  ⚠️  Recomendado PHP 8.2 u 8.3. Usa el de MAMP: C:\\MAMP\\bin\\php\\php8.3.1\\php.exe\n";
 }

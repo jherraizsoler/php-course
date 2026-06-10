@@ -153,7 +153,7 @@ print_r($array);         // muestra arrays legibles
 var_dump($variable);     // muestra tipo + valor (lo más usado para depurar)
 ```
 
-> 💡 En proyectos reales como Perfex se usa `symfony/var-dumper` con la función `dump()` y `dd()`
+> 💡 En proyectos reales como un CRM profesional se usa `symfony/var-dumper` con la función `dump()` y `dd()`
 > (*dump and die*), mucho más bonitas. Lo veremos en el [Módulo 08](../08-librerias-clave/).
 
 ---
@@ -175,4 +175,6 @@ Ve a [`ejercicios/`](ejercicios/) y resuélvelos. Las soluciones están en `ejer
 - `??`, `?:` y `match` son tus amigos en PHP 8.
 - Control de flujo: `if/elseif/else`, `match`, `for`, `while`, `foreach`.
 
-➡️ Siguiente: **[02 · Funciones, arrays y strings](../02-funciones-arrays-strings/)**
+---
+
+⬅️ Anterior: [**00 · Entorno**](../00-entorno/README.md) · 🏠 [**Índice**](../README.md) · ➡️ Siguiente: [**02 · Funciones, arrays y strings**](../02-funciones-arrays-strings/README.md)

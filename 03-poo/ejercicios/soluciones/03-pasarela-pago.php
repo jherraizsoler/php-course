@@ -1,7 +1,7 @@
 <?php
 /**
  * Ejercicio 3: interfaz de pago con varias implementaciones.
- * Es el patrón real que usa Perfex con Omnipay para Stripe/PayPal.
+ * Es el patrón real que usa un CRM profesional con Omnipay para Stripe/PayPal.
  */
 
 declare(strict_types=1);

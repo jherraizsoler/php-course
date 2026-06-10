@@ -10,9 +10,9 @@ declare(strict_types=1);
 
 return [
     'host'    => '127.0.0.1',
-    'port'    => '3306',          // MAMP Windows: 3306 (Mac suele ser 8889)
+    'port'    => '8889',          // MAMP estilo Mac: 8889 · XAMPP/MAMP Windows clásico: 3306
     'dbname'  => 'curso_tareas',
-    'usuario' => 'root',
+    'usuario' => 'root',          // credenciales por defecto de MAMP
     'pass'    => 'root',
     'charset' => 'utf8mb4',
 ];

@@ -1,6 +1,6 @@
 <?php
 /**
- * Ejercicio 3: convertir un texto en "slug" (como cocur/slugify en Perfex).
+ * Ejercicio 3: convertir un texto en "slug" (como cocur/slugify en un CRM profesional).
  * "Hola Mundo PHP!" → "hola-mundo-php"
  */
 

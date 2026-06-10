@@ -23,7 +23,7 @@ $pdf->setPrintFooter(false);
 $pdf->AddPage();
 $pdf->SetFont('helvetica', '', 12);
 
-// Se puede escribir HTML directamente (lo que hace Perfex con sus plantillas)
+// Se puede escribir HTML directamente (lo que hace un CRM profesional con sus plantillas)
 $html = '
     <h1>Factura #001</h1>
     <p><strong>Cliente:</strong> Ana López</p>
@@ -42,6 +42,6 @@ $pdf->writeHTML($html, true, false, true, false, '');
 $pdf->Output('factura.pdf', 'I');
 
 ================================================================
-NOTA: Perfex usa TCPDF a través de su librería App_bulk_pdf_export y
+NOTA: Un CRM profesional usa TCPDF a través de su librería App_bulk_pdf_export y
 plantillas en application/libraries/pdf/. El principio es este mismo.
 ================================================================

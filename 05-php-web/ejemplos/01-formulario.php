@@ -1,7 +1,7 @@
 <?php
 /**
  * Formulario con validación de entrada y escape de salida (anti-XSS).
- * Sírvelo con MAMP:  http://localhost/php-course/05-php-web/ejemplos/01-formulario.php
+ * Sírvelo con MAMP: ábrelo en el navegador (ruta 05-php-web/ejemplos/01-formulario.php desde la raíz del proyecto)
  */
 
 declare(strict_types=1);

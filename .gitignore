@@ -16,3 +16,9 @@ Thumbs.db
 # Editor
 .idea/
 *.swp
+
+# CodeIgniter 3 (proyectos/crud-codeigniter3/app) — archivos generados en runtime
+proyectos/crud-codeigniter3/app/application/logs/*.php
+proyectos/crud-codeigniter3/app/application/cache/*
+!proyectos/crud-codeigniter3/app/application/cache/index.html
+!proyectos/crud-codeigniter3/app/application/cache/.htaccess

@@ -114,7 +114,7 @@ final class CalculadoraTest extends TestCase
 ./vendor/bin/phpunit tests
 ```
 
-> 💡 Perfex usa `fakerphp/faker` (datos falsos para tests) y `symfony/var-dumper`. El testing en
+> 💡 un CRM profesional usa `fakerphp/faker` (datos falsos para tests) y `symfony/var-dumper`. El testing en
 > CI3 es más manual que en CI4, pero el principio es el mismo: aislar y verificar.
 
 En [`ejemplos/test/`](ejemplos/test/) tienes una `Calculadora` con su test listo para correr.
@@ -123,7 +123,7 @@ En [`ejemplos/test/`](ejemplos/test/) tienes una `Calculadora` con su test listo
 
 ## 5. Git y flujo de trabajo
 
-Tal como se trabaja en enfoca-nexo (lo dice su README):
+Un flujo de trabajo profesional habitual:
 
 - Ramas por funcionalidad: `git checkout -b nueva-feature`.
 - Commits pequeños y descriptivos.
@@ -139,4 +139,6 @@ Tal como se trabaja en enfoca-nexo (lo dice su README):
 - Código limpio: nombres claros, funciones cortas, early return, DRY, tipado estricto.
 - **Tests** con PHPUnit para no tener miedo a cambiar el código.
 
-➡️ Siguiente: **[07 · CodeIgniter 3](../07-codeigniter3/)** — ¡por fin el framework!
+---
+
+⬅️ Anterior: [**05 · PHP y la web**](../05-php-web/README.md) · 🏠 [**Índice**](../README.md) · ➡️ Siguiente: [**07 · CodeIgniter 3**](../07-codeigniter3/README.md) — ¡por fin el framework!

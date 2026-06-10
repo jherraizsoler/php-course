@@ -1,7 +1,21 @@
 # CRUD en CodeIgniter 3 — Gestor de usuarios 🏗️
 
 El mismo tipo de aplicación que el CRUD en PHP puro, pero hecho con **CodeIgniter 3** — el framework
-de enfoca-nexo. Verás cuánto código te ahorra el framework y reconocerás el patrón de Perfex.
+de un proyecto profesional. Verás cuánto código te ahorra el framework y reconocerás el patrón de un CRM profesional.
+
+> ✅ **La app ya está montada y funcionando** en la carpeta [`app/`](app/) de este mismo proyecto.
+> - **Para verla:** abre `http://localhost:8888/repoPersonales/php-course/proyectos/crud-codeigniter3/app/`
+> - **Requisito:** MySQL de MAMP arrancado y la BBDD `curso` importada
+>   (desde `05-php-web/ejemplos/db/schema.sql`). La conexión ya está configurada: `127.0.0.1:8889`, `root`/`root`.
+> - **Exportar:** el listado se descarga en **CSV, Excel (.xlsx) y PDF** (botones en la app).
+>   Usan librerías de Composer (TCPDF + PhpSpreadsheet). Si **clonas** el repo, instálalas con
+>   `composer install` dentro de `app/` (el `vendor/` no se versiona). Requiere la extensión
+>   `fileinfo` activa en tu `php.ini`.
+> - **Dashboard:** `/dashboard` muestra métricas con **Chart.js** (render en cliente) y la misma
+>   gráfica generada con **GD** en el servidor (`/dashboard/png`, imagen PNG sin JavaScript).
+>
+> Los pasos de abajo explican **cómo se construye desde cero** (por si quieres entender el montaje o
+> rehacerlo tú mismo). La versión incluida ya tiene todos estos pasos aplicados.
 
 ## Paso 1 — Crear el proyecto CI3
 
@@ -97,7 +111,7 @@ Deberías poder listar, crear (con validación de email único), editar y elimin
 | Mensajes | manual | `flashdata` |
 | Escape salida | `e()` propia | `html_escape()` |
 
-**Conclusión:** el framework te da hecho el 70% del fontanería. Por eso proyectos como Perfex
+**Conclusión:** el framework te da hecho el 70% del fontanería. Por eso proyectos como un CRM profesional
 pueden centrarse en la lógica de negocio. Pero gracias al CRUD en PHP puro, **sabes lo que CI hace
 por debajo** — y eso es lo que te hace buen desarrollador.
 

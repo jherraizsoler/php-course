@@ -1,7 +1,7 @@
 <?php
 /**
  * Sesiones: contador de visitas.
- * Sírvelo con MAMP:  http://localhost/php-course/05-php-web/ejemplos/02-sesiones.php
+ * Sírvelo con MAMP: ábrelo en el navegador (ruta 05-php-web/ejemplos/02-sesiones.php desde la raíz del proyecto)
  * Recarga la página varias veces y verás cómo sube el contador.
  */
 

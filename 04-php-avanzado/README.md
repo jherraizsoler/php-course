@@ -1,7 +1,7 @@
 # 04 · PHP avanzado y Composer 🟡
 
 Excepciones, autoload y **Composer**: el pegamento que hace funcionar cualquier proyecto moderno,
-incluido Perfex (que tiene 30+ librerías instaladas vía Composer).
+incluido un CRM profesional (que tiene 30+ librerías instaladas vía Composer).
 
 ```bash
 php 04-php-avanzado/ejemplos/01-excepciones.php
@@ -43,7 +43,7 @@ throw new SaldoInsuficienteException("No tienes saldo");
 Jerarquía útil de PHP: `Throwable` → `Error` (errores del motor) y `Exception` (errores de tu app),
 con subclases como `InvalidArgumentException`, `RuntimeException`, `LogicException`.
 
-> 🧠 En CodeIgniter/Perfex verás `show_error()` y `log_message()`. Por debajo, los frameworks
+> 🧠 En CodeIgniter verás `show_error()` y `log_message()`. Por debajo, los frameworks
 > modernos convierten errores en excepciones para manejarlas de forma centralizada.
 
 ---
@@ -77,7 +77,7 @@ use Carbon\Carbon;
 echo Carbon::now()->addDays(7)->format('d/m/Y');
 ```
 
-> 📌 En enfoca-nexo hay **dos** `composer.json`: uno en la raíz y otro en `application/`. Por eso el
+> 📌 En un proyecto profesional hay **dos** `composer.json`: uno en la raíz y otro en `application/`. Por eso el
 > README del proyecto te dice ejecutar `composer update` en ambos sitios. Cada uno tiene su `vendor/`.
 
 ---
@@ -114,14 +114,14 @@ $u = new Usuario();
 
 > 💡 Este es exactamente el modelo de **CodeIgniter 4** (namespaces + PSR-4). CI3 NO lo usa para sus
 > clases core, pero SÍ puedes usar Composer para librerías de terceros dentro de CI3 (como hace
-> Perfex). Verás esto en el Módulo 07.
+> un CRM profesional). Verás esto en el Módulo 07.
 
 ---
 
 ## 4. Variables de entorno con `.env` (phpdotenv)
 
 Las claves secretas (contraseñas de BBDD, API keys de Stripe…) **nunca** van en el código. Van en
-un archivo `.env` que NO se commitea. Perfex usa `vlucas/phpdotenv` para esto.
+un archivo `.env` que NO se commitea. Un CRM profesional usa `vlucas/phpdotenv` para esto.
 
 ```bash
 composer require vlucas/phpdotenv
@@ -166,4 +166,6 @@ echo $_ENV['DB_HOST'];   // localhost
 - **PSR-4** mapea namespace → carpeta. Es la base de CI4 y del PHP moderno.
 - Secretos en **`.env`** (phpdotenv), nunca en el código.
 
-➡️ Siguiente: **[05 · PHP y la web](../05-php-web/)**
+---
+
+⬅️ Anterior: [**03 · POO**](../03-poo/README.md) · 🏠 [**Índice**](../README.md) · ➡️ Siguiente: [**05 · PHP y la web**](../05-php-web/README.md)

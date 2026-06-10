@@ -5,6 +5,6 @@
 2. **Jerarquía de empleados** — clase abstracta `Empleado` con `calcularSueldo()` abstracto;
    subclases `Asalariado` y `PorHoras`. Practica herencia y polimorfismo.
 3. **Interfaz de pago** — interfaz `PasarelaPago` y dos implementaciones (`Stripe`, `PayPal`).
-   Es el patrón real de las pasarelas de Perfex con Omnipay.
+   Es el patrón real de las pasarelas de un CRM profesional con Omnipay.
 
 Soluciones en [`soluciones/`](soluciones/).

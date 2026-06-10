@@ -46,6 +46,6 @@ try {
 }
 
 ================================================================
-NOTA: en CodeIgniter 3 / Perfex el envío se envuelve en la librería
+NOTA: en CodeIgniter 3 el envío se envuelve en la librería
 Email de CI (o en App_mailer), pero por debajo es PHPMailer.
 ================================================================

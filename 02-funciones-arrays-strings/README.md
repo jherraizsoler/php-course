@@ -48,7 +48,7 @@ echo $triple(5); // 15
 ```
 
 > 💡 Las closures son la base del estilo funcional que usan `array_map`, `array_filter` y la
-> librería `illuminate/collections` (que usa Perfex). Mira el [Módulo 08](../08-librerias-clave/).
+> librería `illuminate/collections` (que usa un CRM profesional). Mira el [Módulo 08](../08-librerias-clave/).
 
 ---
 
@@ -150,7 +150,7 @@ echo number_format($precio, 2, ',', '.'); // 1.234,50  (formato español)
 2. **Contador de palabras** — dada una frase, cuenta cuántas veces aparece cada palabra
    (devuelve un array asociativo `palabra => veces`).
 3. **Slug** — convierte `"Hola Mundo PHP!"` en `"hola-mundo-php"` (minúsculas, sin símbolos,
-   espacios por guiones). Esto es justo lo que hace `cocur/slugify` en Perfex.
+   espacios por guiones). Esto es justo lo que hace `cocur/slugify` en un CRM profesional.
 
 Soluciones en [`ejercicios/soluciones/`](ejercicios/soluciones/).
 
@@ -163,4 +163,6 @@ Soluciones en [`ejercicios/soluciones/`](ejercicios/soluciones/).
 - `implode` / `explode` para convertir entre array y string.
 - Usa `mb_*` y `str_contains/starts_with/ends_with` (PHP 8).
 
-➡️ Siguiente: **[03 · POO](../03-poo/)**
+---
+
+⬅️ Anterior: [**01 · Fundamentos de PHP**](../01-php-fundamentos/README.md) · 🏠 [**Índice**](../README.md) · ➡️ Siguiente: [**03 · POO**](../03-poo/README.md)
