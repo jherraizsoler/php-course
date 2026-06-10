@@ -1,0 +1,18 @@
+# Dependencias de Composer (se reinstalan con composer install)
+**/vendor/
+
+# Lockfiles de los sub-proyectos de ejemplo (no del curso en sí)
+08-librerias-clave/composer.lock
+04-php-avanzado/ejercicios/proyecto-composer/composer.lock
+
+# Entornos y secretos
+.env
+*.local
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+*.swp

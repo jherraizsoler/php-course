@@ -1,0 +1,13 @@
+{
+    "name": "php-course/librerias-clave",
+    "description": "Ejemplos de librerías clave usadas en proyectos reales tipo Perfex/enfoca-nexo",
+    "require": {
+        "php": ">=8.1",
+        "nesbot/carbon": "^3.8",
+        "guzzlehttp/guzzle": "^7.4",
+        "illuminate/collections": "^10.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.23"
+    }
+}

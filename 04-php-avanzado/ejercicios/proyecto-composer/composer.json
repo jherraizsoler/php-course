@@ -1,0 +1,13 @@
+{
+    "name": "php-course/proyecto-composer",
+    "description": "Mini-proyecto para entender el autoload PSR-4 de Composer",
+    "type": "project",
+    "require": {
+        "php": ">=8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
