@@ -17,6 +17,9 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Dotenv\Dotenv;
 use PragmaRX\Google2FA\Google2FA;
+use chillerlan\QRCode\QRCode;
+use chillerlan\QRCode\QROptions;
+use chillerlan\QRCode\Output\QRMarkupSVG;
 
 // --- Cargar configuración desde .env (secretos fuera del código) ---
 Dotenv::createImmutable(__DIR__)->safeLoad();
@@ -107,6 +110,16 @@ $logged   = ! empty($_SESSION['auth']);
 $en_2fa   = ! empty($_SESSION['pre_2fa']) && ! $logged;
 $otpauth  = $g2fa->getQRCodeUrl($ISSUER, $DEMO_USER, $SECRET);
 
+// QR generado en el SERVIDOR como SVG (sin depender de JavaScript ni de ningún CDN)
+$qrSvg = (new QRCode(new QROptions([
+    // sin fijar 'version' → la librería elige el tamaño según la longitud de los datos
+    'outputInterface'      => QRMarkupSVG::class,
+    'outputBase64'         => false,
+    'svgUseFillAttributes' => true,
+    'scale'                => 5,
+])))->render($otpauth);
+$qrSvg = preg_replace('/^<\?xml.*?\?>\s*/', '', $qrSvg);   // quitar la declaración XML para embeberlo inline
+
 /* ---------------------------------------------------------------- LAYOUT */
 function layout(string $titulo, string $contenido): void
 {
@@ -137,9 +150,10 @@ function layout(string $titulo, string $contenido): void
         .alert.err { background:rgba(244,63,94,.12); border:1px solid rgba(244,63,94,.4); color:var(--lvl-pro); }
         .alert.ok  { background:rgba(16,185,129,.12); border:1px solid rgba(16,185,129,.4); color:var(--lvl-base); }
         .hint { color:var(--text-soft); font-size:.82rem; margin-top:8px; }
-        .qr-box { display:flex; gap:18px; align-items:center; flex-wrap:wrap; margin:10px 0 4px;
-            padding:14px; border:1px solid var(--border); border-radius:14px; background:var(--surface); }
-        .qr-box canvas { background:#fff; border-radius:10px; padding:8px; }
+        .qr-box { display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px;
+            margin:10px 0 4px; padding:18px; border:1px solid var(--border); border-radius:14px; background:var(--surface); }
+        .qr-svg { width:172px; flex:none; background:#fff; border-radius:10px; padding:8px; }
+        .qr-svg svg { display:block; width:100%; height:auto; }
         .secret { font-family:'Fira Code',monospace; color:var(--accent-ink); font-size:.85rem; word-break:break-all; }
         .pills { display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
         .pill { font-size:.72rem; font-weight:700; padding:5px 11px; border-radius:999px;
@@ -166,7 +180,6 @@ function layout(string $titulo, string $contenido): void
     <footer class="footer">🔐 proyectos/login-seguro · demo educativa de seguridad</footer>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 <script>
     const html = document.documentElement, themeBtn = document.getElementById('themeBtn');
     const refreshIcon = () => themeBtn.textContent = html.dataset.theme === 'dark' ? '☀️' : '🌙';
@@ -177,8 +190,6 @@ function layout(string $titulo, string $contenido): void
         localStorage.setItem('php-course-theme', html.dataset.theme); refreshIcon();
         setTimeout(() => html.classList.remove('theme-transition'), 600);
     });
-    const qrEl = document.getElementById('qr');
-    if (qrEl && window.QRCode) QRCode.toCanvas(qrEl, qrEl.dataset.url, { width: 168, margin: 1 });
 </script>
 </body>
 </html>
@@ -224,7 +235,7 @@ if ($en_2fa) {
 
         <p class="hint">1) Escanea este QR con <strong>Google Authenticator</strong> / <strong>Microsoft Authenticator</strong> (solo la primera vez):</p>
         <div class="qr-box">
-            <canvas id="qr" data-url="<?= e($otpauth) ?>"></canvas>
+            <div class="qr-svg"><?= $qrSvg ?></div>
             <div>
                 <p class="hint" style="margin:0 0 6px">¿No puedes escanear? Introduce este secreto a mano:</p>
                 <div class="secret"><?= e($SECRET) ?></div>

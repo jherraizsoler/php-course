@@ -1,0 +1,49 @@
+# =============================================================================
+#  PHP Course — entorno completo con un comando:  docker compose up
+#  - web: PHP 8.3 + Apache  → http://localhost:8080/
+#  - db:  MySQL 8           → crea 'curso' y 'curso_tareas' al arrancar
+# =============================================================================
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"            # acceso externo opcional (evita chocar con MAMP)
+    volumes:
+      - dbdata:/var/lib/mysql
+      # Los schema.sql crean las BBDD automáticamente la primera vez (= "migraciones")
+      - ./05-php-web/ejemplos/db/schema.sql:/docker-entrypoint-initdb.d/01-curso.sql:ro
+      - ./proyectos/crud-php-puro/schema.sql:/docker-entrypoint-initdb.d/02-curso_tareas.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html        # edición en vivo del código
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_USER: root
+      DB_PASS: root
+    depends_on:
+      db:
+        condition: service_healthy
+    command: >
+      bash -c "
+      for d in proyectos/crud-codeigniter3/app proyectos/login-seguro; do
+        if [ -f \"$$d/composer.json\" ] && [ ! -f \"$$d/vendor/autoload.php\" ]; then
+          (cd \"$$d\" && composer install --no-interaction --no-dev);
+        fi;
+      done;
+      php tools/env-setup.php || true;
+      apache2-foreground"
+
+volumes:
+  dbdata:

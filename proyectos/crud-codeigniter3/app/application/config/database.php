@@ -12,11 +12,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = true;
 
+// Host/puerto/usuario/clave desde variables de entorno (Docker) con fallback a MAMP.
+$DB_HOST = getenv('DB_HOST') ?: '127.0.0.1';
+$DB_PORT = (int) (getenv('DB_PORT') ?: 8889);
+$DB_USER = getenv('DB_USER') ?: 'root';
+$DB_PASS = getenv('DB_PASS') !== false ? getenv('DB_PASS') : 'root';
+
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '127.0.0.1',
-	'username' => 'root',
-	'password' => 'root',
+	'hostname' => $DB_HOST,
+	'username' => $DB_USER,
+	'password' => $DB_PASS,
 	'database' => 'curso',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
@@ -32,5 +38,5 @@ $db['default'] = array(
 	'stricton' => false,
 	'failover' => array(),
 	'save_queries' => true,
-	'port' => 8889,
+	'port' => $DB_PORT,
 );

@@ -38,6 +38,26 @@ El script deja **todo listo automáticamente**:
 
 ---
 
+## 🐳 Alternativa: Docker (todo en un comando, sin instalar nada)
+
+Si tienes **Docker**, no necesitas MAMP/XAMPP ni configurar PHP/MySQL a mano:
+
+```bash
+docker compose up --build
+```
+
+- **Web** (PHP 8.3 + Apache) → **http://localhost:8080/**
+- **MySQL 8** con las bases `curso` y `curso_tareas` **creadas automáticamente** al arrancar (las "migraciones").
+- Las dependencias de **Composer se instalan solas**.
+
+La conexión a la BBDD se pasa por variables de entorno (servicio `db:3306`), así que las apps funcionan
+igual dentro de Docker que en local. Parar: `docker compose down` (añade `-v` para borrar también la BBDD).
+
+> 💡 **Deployable**: esta misma imagen sirve para desplegar en **Railway / Render / Fly.io** (PHP + MySQL)
+> y exponerla en un dominio público — algo que GitHub Pages (solo estático) no puede hacer.
+
+---
+
 ## 🎯 Cómo usar este curso
 
 1. Cada carpeta `NN-tema/` es un **módulo** con su propio `README.md` (la lección).

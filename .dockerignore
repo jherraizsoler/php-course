@@ -1,0 +1,7 @@
+# No enviar al contexto de build (se instalan/regeneran dentro de la imagen)
+.git
+**/vendor
+**/node_modules
+*.log
+**/.env
+.idea

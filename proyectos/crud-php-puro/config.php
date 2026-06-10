@@ -8,11 +8,12 @@
 
 declare(strict_types=1);
 
+// Lee de variables de entorno (Docker) con fallback a MAMP, igual que el resto del proyecto.
 return [
-    'host'    => '127.0.0.1',
-    'port'    => '8889',          // MAMP estilo Mac: 8889 · XAMPP/MAMP Windows clásico: 3306
+    'host'    => getenv('DB_HOST') ?: '127.0.0.1',
+    'port'    => getenv('DB_PORT') ?: '8889',   // MAMP Mac: 8889 · XAMPP/Win: 3306 · Docker: 3306
     'dbname'  => 'curso_tareas',
-    'usuario' => 'root',          // credenciales por defecto de MAMP
-    'pass'    => 'root',
+    'usuario' => getenv('DB_USER') ?: 'root',
+    'pass'    => getenv('DB_PASS') !== false ? getenv('DB_PASS') : 'root',
     'charset' => 'utf8mb4',
 ];
