@@ -1,0 +1,21 @@
+# Las subidas de los usuarios NO van a git, pero sí los modelos de ejemplo.
+*
+!.gitignore
+!cubo-ejemplo.stl
+!ejemplo-tetraedro.vtp
+!ejemplo-volumen.vti
+!ejemplo-legacy.vtk
+!ejemplo-triangulo.gltf
+# Modelos dentales de ejemplo (sector odontología)
+!Maxillary_Denture_Base.stl
+!Anterior_Teeth.stl
+!Posterior_Teeth_1.stl
+!Posterior_Teeth_2.stl
+# Modelos vasculares de ejemplo (sector cirugía) — solo los <100 MB (GitHub rechaza >100 MB)
+!carotid.vti
+!0157_0000.vtp
+!AS1_SU0308_prestent.stl
+# Modelo de arquitectura (generado por código, propio)
+!basilica-pilar.stl
+# NO versionados: carotid.vtk (binario, no lo lee vtk.js → se usa carotid.vti),
+#   y los >100 MB: 0089_H_PULM_ALGS_3D_RIGID.vtp (499 MB), AS1_SU0308_prestent.vtp (183 MB)

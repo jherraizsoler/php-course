@@ -30,6 +30,7 @@ $base    = dirname(__DIR__);
 $schemas = [
     $base . '/05-php-web/ejemplos/db/schema.sql',     // BBDD 'curso'        (tabla usuarios)
     $base . '/proyectos/crud-php-puro/schema.sql',    // BBDD 'curso_tareas' (tabla tareas)
+    $base . '/proyectos/visor-3d/schema.sql',         // BBDD 'curso_3d'     (tabla modelos)
 ];
 
 $errores = 0;

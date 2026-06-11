@@ -15,6 +15,7 @@ services:
       # Los schema.sql crean las BBDD automáticamente la primera vez (= "migraciones")
       - ./05-php-web/ejemplos/db/schema.sql:/docker-entrypoint-initdb.d/01-curso.sql:ro
       - ./proyectos/crud-php-puro/schema.sql:/docker-entrypoint-initdb.d/02-curso_tareas.sql:ro
+      - ./proyectos/visor-3d/schema.sql:/docker-entrypoint-initdb.d/03-curso_3d.sql:ro
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
       interval: 5s
@@ -27,6 +28,8 @@ services:
       - "8080:80"
     volumes:
       - .:/var/www/html        # edición en vivo del código
+      # ini montado en vivo: cambiar límites de subida no requiere reconstruir, solo reiniciar.
+      - ./docker/php-course.ini:/usr/local/etc/php/conf.d/zz-course.ini:ro
     environment:
       DB_HOST: db
       DB_PORT: "3306"

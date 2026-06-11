@@ -33,8 +33,11 @@ if (is_file($autoload)) {
 }
 
 $contenido = (string) file_get_contents($example);
-$contenido = preg_replace('/^DEMO_PASS_HASH=.*$/m', "DEMO_PASS_HASH='{$hash}'", $contenido);
-$contenido = preg_replace('/^TOTP_SECRET=.*$/m', "TOTP_SECRET={$secret}", $contenido);
+// OJO: usamos preg_replace_callback (no preg_replace) porque el hash bcrypt
+// contiene '$2y$10$...' y, como string de reemplazo, PHP interpretaría
+// $2, $10... como retro-referencias y corrompería el hash.
+$contenido = preg_replace_callback('/^DEMO_PASS_HASH=.*$/m', fn() => "DEMO_PASS_HASH='{$hash}'", $contenido);
+$contenido = preg_replace_callback('/^TOTP_SECRET=.*$/m', fn() => "TOTP_SECRET={$secret}", $contenido);
 
 file_put_contents($env, $contenido);
 echo "✅ login-seguro/.env creado (usuario: jorge · contraseña: demo1234).\n";
