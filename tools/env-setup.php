@@ -33,9 +33,7 @@ if (is_file($autoload)) {
 }
 
 $contenido = (string) file_get_contents($example);
-// OJO: usamos preg_replace_callback (no preg_replace) porque el hash bcrypt
-// contiene '$2y$10$...' y, como string de reemplazo, PHP interpretaría
-// $2, $10... como retro-referencias y corrompería el hash.
+// Usar preg_replace_callback para evitar que '$' del hash se trate como backreference.
 $contenido = preg_replace_callback('/^DEMO_PASS_HASH=.*$/m', fn() => "DEMO_PASS_HASH='{$hash}'", $contenido);
 $contenido = preg_replace_callback('/^TOTP_SECRET=.*$/m', fn() => "TOTP_SECRET={$secret}", $contenido);
 

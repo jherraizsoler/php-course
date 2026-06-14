@@ -14,12 +14,12 @@
 
 declare(strict_types=1);
 
-// --- Configuración de conexión (ajústala a tu MAMP) ---
-const DB_HOST = '127.0.0.1';
-const DB_PORT = '3306';        // MAMP Windows: 3306 (a veces 8889 en Mac)
-const DB_NAME = 'curso';
-const DB_USER = 'root';
-const DB_PASS = 'root';
+// --- Configuración de conexión: usa variables de entorno (Docker), fallback a local ---
+define('DB_HOST', getenv('DB_HOST') ?: '127.0.0.1');
+define('DB_PORT', getenv('DB_PORT') ?: '3306');        // Docker: 3306, MAMP local: 8889 o 3306
+define('DB_NAME', 'curso');
+define('DB_USER', getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('DB_PASS') ?: 'root');
 
 header('Content-Type: text/html; charset=utf-8');
 
