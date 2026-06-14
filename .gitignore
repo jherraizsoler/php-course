@@ -1,24 +1,73 @@
-# Dependencias de Composer (se reinstalan con composer install)
+# ============================================
+# DEPENDENCIAS Y LIBRERÍAS (se reinstalan automáticamente)
+# ============================================
 **/vendor/
+**/node_modules/
+**/composer.lock
 
-# Lockfiles de los sub-proyectos de ejemplo (no del curso en sí)
-08-librerias-clave/composer.lock
-04-php-avanzado/ejercicios/proyecto-composer/composer.lock
+# Excepciones: lockfiles de sub-proyectos de EJEMPLO son ignorados (se reinstalan)
+!04-php-avanzado/ejercicios/proyecto-composer/composer.lock
+!08-librerias-clave/composer.lock
+!proyectos/*/composer.lock
 
-# Entornos y secretos
+# ============================================
+# SECRETOS Y VARIABLES DE ENTORNO
+# ============================================
 .env
-*.local
+.env.local
+.env.*.local
+*.pem
+*.key
 
-# Sistema
+# ============================================
+# ARCHIVOS DE SISTEMA
+# ============================================
 .DS_Store
+.AppleDouble
+.LSOverride
 Thumbs.db
-
-# Editor
-.idea/
 *.swp
+*.swo
+*~
+.project
+.settings/
 
-# CodeIgniter 3 (proyectos/crud-codeigniter3/app) — archivos generados en runtime
+# ============================================
+# IDEs Y EDITORES
+# ============================================
+.idea/
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+*.sublime-project
+*.sublime-workspace
+.code-workspace
+*.code-workspace
+
+# ============================================
+# ARCHIVOS GENERADOS EN RUNTIME
+# ============================================
+# CodeIgniter 3 logs y cache
 proyectos/crud-codeigniter3/app/application/logs/*.php
 proyectos/crud-codeigniter3/app/application/cache/*
 !proyectos/crud-codeigniter3/app/application/cache/index.html
 !proyectos/crud-codeigniter3/app/application/cache/.htaccess
+
+# Uploads y archivos temporales
+proyectos/visor-3d/uploads/*
+!proyectos/visor-3d/uploads/.gitkeep
+!proyectos/visor-3d/uploads/.gitignore
+
+# ============================================
+# BASES DE DATOS Y ALMACENAMIENTO
+# ============================================
+dbdata/
+*.sql.bak
+*.sqlite
+*.db
+
+# ============================================
+# DOCKER (archivos locales)
+# ============================================
+docker-compose.override.yml
+.dockerignore

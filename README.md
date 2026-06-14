@@ -11,50 +11,99 @@ panel de gestión (CodeIgniter 3.1.11 + HMVC + hooks).
 
 ---
 
-## 🚀 Puesta en marcha rápida (al clonar desde GitHub)
+## 🚀 Inicio rápido — elige tu opción
 
-Pon el repo dentro de `htdocs` (MAMP) o `htdocs` (XAMPP), arranca Apache + MySQL y ejecuta **un comando**:
+### 🐳 OPCIÓN 1: Docker (recomendado — 0 configuración, 1 comando)
+
+Si tienes **Docker Desktop** instalado, este es el flujo más rápido:
+
+```bash
+git clone https://github.com/jherraizsoler/php-course.git
+cd php-course
+docker compose up --build
+# Abre http://localhost:8080/
+```
+
+✅ **Todo automático:** BBDD creadas, Composer resuelto, secretos generados. **Sin pasos manuales.**
+
+### 💻 OPCIÓN 2: Local (MAMP/XAMPP Windows, macOS, Linux)
+
+Si prefieres trabajar sin Docker, copia el repo a tu carpeta `htdocs` y ejecuta:
 
 ```powershell
-# Windows (PowerShell), con MAMP:
+# Windows (PowerShell):
 .\setup.ps1
 
-# Si tu MySQL usa el puerto 3306 (XAMPP / MAMP Windows clásico):
+# Si tu MySQL usa puerto 3306 (XAMPP estándar):
 $env:DB_PORT='3306'; .\setup.ps1
 ```
 
 ```bash
-# Linux / macOS / Git Bash:
+# Linux / macOS:
 bash setup.sh           # o:  DB_PORT=3306 bash setup.sh
 ```
 
-El script deja **todo listo automáticamente**:
-1. **Dependencias** — `composer install` en cada sub-proyecto que lo necesite (CI3, login-seguro…).
-2. **Base de datos** — crea e importa `curso` (usuarios) y `curso_tareas` (tareas). *(Es la "migración".)*
-3. **Secretos** — genera el `.env` de la demo de seguridad (hash + secreto 2FA).
-
-> Variables opcionales: `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASS` (por defecto `127.0.0.1:8889`, `root`/`root`).
-> ¿Solo la base de datos? `php tools/db-setup.php`.
+El script instala dependencias Composer, crea BBDD e importa datos. **Requisitos previos:**
+- Apache arrancado
+- MySQL arrancado (MAMP, XAMPP o similar)
 
 ---
 
-## 🐳 Alternativa: Docker (todo en un comando, sin instalar nada)
+## 📖 Detalles de cada opción
 
-Si tienes **Docker**, no necesitas MAMP/XAMPP ni configurar PHP/MySQL a mano:
+### Docker — Flujo automático completo
+
+Mientras Docker arranca, hace TODO automáticamente:
+
+1. **Construye la imagen PHP** (Dockerfile) con:
+   - PHP 8.3 + Apache + todas las extensiones necesarias (pdo_mysql, gd, zip, etc.)
+   - Composer instalado
+   - Dependencias Composer ya resueltas (`vendor/` preinstalado)
+
+2. **Inicia MySQL 8** y ejecuta las "migraciones" (crea BBDD + tablas automáticamente):
+   - `curso` (tabla usuarios)
+   - `curso_tareas` (tabla tareas)
+   - `curso_3d` (tabla modelos para visor 3D)
+
+3. **Genera secretos** (`.env` del login-seguro con hash + 2FA automático)
+
+4. **Expone servicios** en tu máquina:
+   - **Web:** http://localhost:8080/ (PHP 8.3 + Apache)
+   - **MySQL:** localhost:3307 (acceso externo opcional, dentro es `db:3306`)
+
+**Comandos útiles:**
 
 ```bash
-docker compose up --build
+docker compose down              # Parar sin borrar (datos persisten)
+docker compose down -v           # Parar Y borrar todo (BBDD incluida)
+docker compose logs -f web       # Ver logs en tiempo real
+docker compose exec web bash     # Abrir shell en el contenedor
+docker compose down -v && docker compose up --build   # Resetear todo
 ```
 
-- **Web** (PHP 8.3 + Apache) → **http://localhost:8080/**
-- **MySQL 8** con las bases `curso` y `curso_tareas` **creadas automáticamente** al arrancar (las "migraciones").
-- Las dependencias de **Composer se instalan solas**.
+> 💡 **Ventaja:** Esta misma imagen sirve para desplegar en **Railway / Render / Fly.io** sin cambios.
 
-La conexión a la BBDD se pasa por variables de entorno (servicio `db:3306`), así que las apps funcionan
-igual dentro de Docker que en local. Parar: `docker compose down` (añade `-v` para borrar también la BBDD).
+---
 
-> 💡 **Deployable**: esta misma imagen sirve para desplegar en **Railway / Render / Fly.io** (PHP + MySQL)
-> y exponerla en un dominio público — algo que GitHub Pages (solo estático) no puede hacer.
+### Local (MAMP/XAMPP) — Qué hace setup.ps1 / setup.sh
+
+El script de setup instala automáticamente:
+
+1. **Dependencias Composer** — `composer install` en cada sub-proyecto que lo necesite:
+   - `proyectos/crud-codeigniter3/app/`
+   - `proyectos/login-seguro/`
+
+2. **Base de datos** — crea e importa automáticamente:
+   - `curso` (tabla usuarios para ejemplos 05-php-web)
+   - `curso_tareas` (tabla tareas para CRUD puro)
+   - `curso_3d` (tabla modelos para visor 3D)
+
+3. **Secretos** — genera el `.env` de la demo de seguridad:
+   - Hash bcrypt para usuario `demo` 
+   - Secreto TOTP (2FA) automático
+
+> **Requisitos previos:** Apache + MySQL arrancados en MAMP/XAMPP.
+> **Variables opcionales:** `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASS` (por defecto `127.0.0.1:8889`, `root`/`root`).
 
 ---
 
